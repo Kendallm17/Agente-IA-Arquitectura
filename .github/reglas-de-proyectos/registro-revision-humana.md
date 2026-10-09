@@ -1,8 +1,8 @@
 # Registro de revisión humana
 
-Contrato de datos para conservar el historial de revisión de cualquier salida del agente (contexto, hallazgo, recomendación, entregable). Implementa la Fase 9 del proceso de Arquitectura TI (`CONTEXTO DEL AGENTE.md`, sección 5).
+Contrato de datos para conservar el historial de revisión de cualquier salida del agente (contexto, hallazgo, recomendación, entregable). Implementa la fase de Revisión Humana del proceso de Arquitectura TI.
 
-**Estado: activo.** Este archivo define el contrato de datos — no un mecanismo de almacenamiento real (ese depende del motor de ejecución que todavía no existe; ver `ActualizacionContextMaestro.md`). Mientras ese motor no exista, el registro vive dentro de la propia conversación donde se revisó el resultado; cuando exista persistencia real, este contrato es el que debe implementarse tal cual, sin rediseñarlo.
+**Estado: activo.** Este archivo define el contrato de datos — no un mecanismo de almacenamiento real, porque todavía no existe un motor de ejecución que persista resultados fuera de la conversación en curso. Mientras ese motor no exista, el registro vive dentro de la propia conversación donde se revisó el resultado; cuando exista persistencia real, este contrato es el que debe implementarse tal cual, sin rediseñarlo.
 
 Última actualización: 2026-10-08.
 
@@ -56,7 +56,7 @@ No hay una séptima opción implícita (como "ignorar" o "aprobar automáticamen
 
 ## Cómo se usa hoy (sin motor de ejecución real)
 
-Mientras no exista un lugar donde el agente guarde estados de forma persistente (ver `ActualizacionContextMaestro.md`, "mission-context.md y las demás salidas"), este registro vive dentro de la conversación: cuando una persona arquitecta responde a un resultado del agente con una de las 6 acciones, el agente debe reflejar esa respuesta explícitamente en su siguiente salida (citando los 7 campos) en vez de simplemente continuar como si no hubiera pasado nada. Cuando exista persistencia real, este mismo contrato se traslada sin cambios a esa capa de almacenamiento.
+Mientras no exista un lugar donde el agente guarde estados de forma persistente, este registro vive dentro de la conversación: cuando una persona arquitecta responde a un resultado del agente con una de las 6 acciones, el agente debe reflejar esa respuesta explícitamente en su siguiente salida (citando los 7 campos) en vez de simplemente continuar como si no hubiera pasado nada. Cuando exista persistencia real, este mismo contrato se traslada sin cambios a esa capa de almacenamiento.
 
 ## Errores que este registro busca evitar
 
@@ -67,6 +67,6 @@ Mientras no exista un lugar donde el agente guarde estados de forma persistente 
 
 ## Fuentes
 
-- `CONTEXTO DEL AGENTE.md`, sección 5, Fase 9 (Revisión humana).
+- El encargo original del proyecto (documento externo de Arquitectura TI; no forma parte de este repositorio en su versión final — ver `reglas-inviolables-de-mision.md` §6).
 - `.github/reglas-de-proyectos/reglas-inviolables-de-mision.md` §4 (revisión humana y autoría).
 - `.github/agents/leo-arquitec.agent.md`, Contrato de salida común (campo "Fecha de ejecución", distinto de la "Fecha" de este registro).

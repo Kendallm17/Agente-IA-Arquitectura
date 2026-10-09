@@ -6,7 +6,7 @@ applyTo: "**/mission-context.md"
 
 ## Propósito
 
-Para cada componente marcado "Coste pendiente" por `extraer-componentes-arquitectura`, identificar qué parámetros concretos haría falta conocer para cotizarlo con una fuente real de costeo (calculadora de nube, cotización de proveedor, catálogo de precios institucional) — sin calcular ni estimar ningún precio, porque esa fuente real todavía no está disponible (ver `INSUMOS-POR-SOLICITAR.md`).
+Para cada componente marcado "Coste pendiente" por `extraer-componentes-arquitectura`, identificar qué parámetros concretos haría falta conocer para cotizarlo con una fuente real de costeo (calculadora de nube, cotización de proveedor, catálogo de precios institucional) — sin calcular ni estimar ningún precio, porque esa fuente real todavía no está disponible.
 
 ## Cuándo se utiliza
 
@@ -53,7 +53,7 @@ Ninguno directamente; depende de la salida de `extraer-componentes-arquitectura`
 - Por cada componente "Coste pendiente": su lista de parámetros, cada uno con estado (Disponible, con valor y fuente; o Pendiente de confirmar) y categoría del componente.
 - Advertencia explícita de qué componentes heredan baja certeza del catálogo C4 original.
 - Advertencia general: ningún precio fue calculado ni estimado; esta salida solo sirve para alimentar una fuente de costeo real cuando exista.
-- Próximo paso: en cuanto exista una fuente de costeo real (ver `INSUMOS-POR-SOLICITAR.md`), un skill posterior usará esta lista de parámetros para producir el costo citando su fuente.
+- Próximo paso: en cuanto exista una fuente de costeo real, un skill posterior usará esta lista de parámetros para producir el costo citando su fuente.
 - Revisión humana: siempre `sí` — en particular, para completar los parámetros "Pendiente de confirmar".
 
 ## Formato de salida
