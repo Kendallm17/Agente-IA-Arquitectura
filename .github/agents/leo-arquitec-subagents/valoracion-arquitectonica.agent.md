@@ -33,17 +33,18 @@ Aplicar los 6 pilares, la racionalización 5R y los patrones de resiliencia del 
 
 ## Flujo
 
-`mission-context.md` → Racionalización → Patrón de resiliencia → Modelo C4 → Propuesta preliminar consolidada.
+`mission-context.md` → Racionalización → Patrón de resiliencia → Comparación de alternativas de nube (solo si el proveedor no está declarado) → Modelo C4 → Propuesta preliminar consolidada.
 
 ## Skills que usa
 
 1. [`evaluar-racionalizacion`](../../skills/leo-arquitec-skills/evaluar-racionalizacion/SKILL.md) — decide la estrategia 5R o confirma que no aplica.
 2. [`seleccionar-patron-resiliencia`](../../skills/leo-arquitec-skills/seleccionar-patron-resiliencia/SKILL.md) — recomienda OP1–OP4 o PN1–PN5 según criticidad y RTO/RPO.
-3. [`generar-modelo-c4`](../../skills/leo-arquitec-skills/generar-modelo-c4/SKILL.md) — arma el catálogo estructurado del modelo C4.
+3. [`comparar-alternativas-nube`](../../skills/leo-arquitec-skills/comparar-alternativas-nube/SKILL.md) — cuando la misión no declara proveedor de nube (o se pide explícitamente evaluar alternativas), recomienda Azure o AWS basándose en seguridad, integraciones, costos (cualitativo) y complejidad; no se ejecuta si el proveedor ya está declarado.
+4. [`generar-modelo-c4`](../../skills/leo-arquitec-skills/generar-modelo-c4/SKILL.md) — arma el catálogo estructurado del modelo C4, usando el proveedor que la misión declaró o el que recomendó `comparar-alternativas-nube`.
 
 ### Lo que falta (fuera de alcance de esta versión)
 
-El catálogo original del contexto maestro propone más skills para este subagente (clasificar requerimientos, analizar integraciones a fondo, evaluar alternativa Azure, evaluar alternativa AWS, evaluar solución híbrida, identificar componentes/relaciones por separado, generar decisiones arquitectónicas por separado). Hoy esas responsabilidades están parcialmente cubiertas dentro de `generar-modelo-c4` (que ya identifica componentes, relaciones y decisiones básicas con su fuente). Lo que falta explícitamente es una **comparación activa entre alternativas de nube** (hoy el modelo C4 solo refleja el proveedor que la misión ya declaró, no evalúa si Azure, AWS o un híbrido sería mejor). Se agrega cuando haga falta, sin modificar los 3 skills ya construidos.
+El catálogo original del contexto maestro propone más skills para este subagente (clasificar requerimientos, analizar integraciones a fondo, identificar componentes/relaciones por separado, generar decisiones arquitectónicas por separado). Hoy esas responsabilidades están parcialmente cubiertas dentro de `generar-modelo-c4` (que ya identifica componentes, relaciones y decisiones básicas con su fuente). La comparación activa de alternativas de nube, que antes estaba pendiente, ya se construyó (`comparar-alternativas-nube`, 2026-10-09) tras confirmar con la persona responsable que no existe una política institucional fija de proveedor.
 
 ## Conocimiento que consulta
 
@@ -56,7 +57,7 @@ El catálogo original del contexto maestro propone más skills para este subagen
 - `.github/reglas-de-proyectos/reglas-inviolables-de-mision.md`.
 - `.github/reglas-de-proyectos/correcciones-humanas.md`.
 
-Si ya se leyeron antes en esta misma misión (por el orquestador o por `context-builder`), este subagente no los reabre antes de cada uno de sus 3 skills.
+Si ya se leyeron antes en esta misma misión (por el orquestador o por `context-builder`), este subagente no los reabre antes de cada uno de sus 4 skills.
 
 ## Criterio para activarlo
 
@@ -64,7 +65,7 @@ El orquestador delega aquí cuando `mission-context.md` ya existe y su estado no
 
 ## Criterio para finalizar
 
-Entregó los tres resultados (racionalización, patrón de resiliencia, modelo C4), cada uno con su propio estado (resultado sustantivo o "Requiere información"), listos para que Gobierno y Cumplimiento los revise.
+Entregó los resultados correspondientes (racionalización, patrón de resiliencia, comparación de nube si aplicó, modelo C4), cada uno con su propio estado (resultado sustantivo o "Requiere información"), listos para que Gobierno y Cumplimiento los revise.
 
 ## Revisión humana requerida
 

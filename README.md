@@ -51,6 +51,7 @@ LeoGeneradorDesc/
     │   ├── puerta-calidad-contexto/
     │   ├── evaluar-racionalizacion/
     │   ├── seleccionar-patron-resiliencia/
+    │   ├── comparar-alternativas-nube/
     │   ├── generar-modelo-c4/
     │   ├── validar-seguridad/          (primer skill de Gobierno y Cumplimiento)
     │   ├── validar-lineamiento-nube/   (segundo skill de Gobierno y Cumplimiento)
