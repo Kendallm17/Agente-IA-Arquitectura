@@ -13,6 +13,7 @@ Proveer al Agente Evaluador los principios de diseño y las preguntas oficiales 
 ## Fuente
 
 - Documento: "AWS Well-Architected Framework" (PDF oficial de AWS). Publicación: 6 de noviembre de 2024. 1094 páginas; este resumen cubre la visión general de los 6 pilares (principios de diseño + catálogo de preguntas). El apéndice completo con cada práctica recomendada en detalle queda en el PDF original; se cita por pilar y número de pregunta (p. ej. "OPS 7") para que quien lo necesite localice el detalle.
+- Última revisión registrada en este repo: 2026-10-07 (fecha en que se incorporó este resumen al agente). Verificar si AWS publicó una versión más reciente del framework antes de usarla en una evaluación crítica.
 
 ## Cuándo se consulta
 

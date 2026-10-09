@@ -13,6 +13,7 @@ Proveer al Agente Evaluador la lista de verificación oficial de Microsoft (5 pi
 ## Fuente
 
 - Documento: "Azure Well-Architected Framework" (PDF oficial de Microsoft). Es una compilación extensa de Microsoft Learn (novedades + checklists por pilar + guías por servicio). Este resumen cubre los checklists oficiales de los 5 pilares (la parte estable y citable); las guías específicas por servicio de Azure quedan en el PDF original y se consultan solo si la misión usa ese servicio en particular.
+- Última revisión registrada en este repo: 2026-10-07 (fecha en que se incorporó este resumen al agente). Verificar si Microsoft actualizó el checklist antes de usarlo en una evaluación crítica — Microsoft Learn se actualiza con más frecuencia que un PDF estático.
 
 ## Cuándo se consulta
 

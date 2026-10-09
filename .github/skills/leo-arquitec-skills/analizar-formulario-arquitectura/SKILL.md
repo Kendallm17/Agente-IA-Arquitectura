@@ -86,7 +86,7 @@ La columna `Evidencia/referencia` de cada fila, tal cual viene en el archivo, si
 ## Dependencias
 
 - `.github/reglas-de-proyectos/reglas-inviolables-de-mision.md` (umbrales de dictamen, regla de bloqueante).
-- `.github/reglas-de-proyectos/correcciones-humanas.md` (revisar antes de producir el resultado).
+- `.github/reglas-de-proyectos/correcciones-humanas.md` (ya cargado por `context-builder` al iniciar la misión; solo se reabre si esta es la primera vez en la conversación que se usa este skill).
 
 ## Criterios de aceptación
 

@@ -67,6 +67,8 @@ Tres skills del catálogo original (`inventariar-documentos`, `clasificar-docume
 - `.github/reglas-de-proyectos/reglas-inviolables-de-mision.md`
 - `.github/reglas-de-proyectos/correcciones-humanas.md`
 
+Si el orquestador ya los leyó al iniciar esta misión (según su propio checklist), este subagente los da por leídos y no los reabre antes de cada uno de los 6 skills — solo si empieza una conversación nueva sin ese contexto previo.
+
 ## Criterio para activarlo
 
 El orquestador delega aquí cuando la solicitud trae o referencia documentos de una misión (Tallaje, Formulario) y todavía no existe un `mission-context.md` vigente para esa misión, o se pide actualizarlo porque llegó un documento nuevo.

@@ -4,7 +4,7 @@ Reglas que aplican a cualquier misión, sin excepción, y que ningún subagente,
 
 **Estado: activas.** Este archivo se actualiza de forma incremental cada vez que se aprenda algo útil (nuevo conocimiento, campo real, entregable, corrección humana) — no se espera a tener "todo" para escribir una regla. Cuando una regla cambie, se edita en el mismo lugar; no se duplica.
 
-Última actualización: 2026-10-07.
+Última actualización: 2026-10-08 (actualización 3).
 
 ## 1. Sobre inventar información
 
@@ -34,6 +34,7 @@ Reglas que aplican a cualquier misión, sin excepción, y que ningún subagente,
 - Una recomendación rechazada no se presenta después como conclusión aprobada.
 - No ocultar contradicciones ni corregirlas en silencio: se registran ambos valores, sus fuentes, y se pide validación humana.
 - No modificar plantillas o fuentes oficiales sin autorización explícita.
+- Toda revisión humana (Aceptar, Rechazar, Modificar, Solicitar aclaraciones, Solicitar nueva versión, Mantener pendiente) se registra siguiendo el contrato de `.github/reglas-de-proyectos/registro-revision-humana.md` — nunca se asume una de estas acciones por defecto cuando no hubo respuesta explícita; el resultado queda "Pendiente de revisión" indefinidamente hasta que la haya.
 
 ## 5. Sobre nube y cumplimiento (ver `.github/knowledge/`)
 
@@ -41,12 +42,14 @@ Reglas que aplican a cualquier misión, sin excepción, y que ningún subagente,
 - Etiquetado FinOps obligatorio, sin excepción, en todo recurso de nube: `Ambiente`, `CentroCostos`, `Direccion`, `Gerencia`, `IDCargoSAP`, `Proyecto`, `Responsable`, `Servicio` (sin tildes). `IDCargoSAP` es indispensable para asignar costo.
 - MFA, cifrado (TLS 1.2+ / AES-256) y mínimo privilegio son obligatorios; su ausencia es hallazgo bloqueante de seguridad.
 - Toda recomendación de AWS o Azure se vincula a un código verificable del WAF correspondiente (`.github/knowledge/aws/`, `.github/knowledge/azure/`), no a una práctica genérica sin fuente.
+- Un bloqueante ya identificado por un skill (p. ej. `analizar-formulario-arquitectura`) nunca se reduce, se oculta ni se "des-bloquea" en una capa posterior (p. ej. `validar-seguridad`, Evaluación de Riesgos). Una capa posterior solo puede confirmarlo, enriquecerlo con una fuente adicional, o agregar un bloqueante nuevo — nunca quitar uno existente.
 
 ## 6. Sobre el repositorio y el ecosistema
 
 - Los documentos de planificación humana, el conocimiento de referencia aparte de `.github/knowledge/`, los insumos originales y las pruebas de desarrollo no viven dentro de `.github/` — esa carpeta es únicamente la configuración operativa que Leo escanea para delegar, y es lo único que forma parte de la versión final del agente. Nada dentro de `.github/` puede referenciar un archivo fuera de `.github/`.
 - Los subagentes y skills se diseñan concisos: lo necesario para cumplir su objetivo, sin relleno. Las fichas de `.github/knowledge/` pueden ser más extensas porque son material de referencia, no tareas ejecutables.
 - Antes de producir un resultado para una misión real, se revisa `correcciones-humanas.md` (memoria de errores en producción) para no repetir un error que una persona arquitecta ya corrigió.
+- **Trazabilidad obligatoria (`CONTEXTO DEL AGENTE.md` §19):** toda salida de un subagente/skill cita, además de misión/resultado/advertencias/revisión humana, la versión de las fuentes normativas que usó. Esa versión es la fecha de "Última revisión registrada en este repo" que cada ficha de `.github/knowledge/*.md` declara en su propia sección "Fuente" — nunca la fecha de los documentos de la misión que se está evaluando, que es un dato distinto. Toda ficha de conocimiento y toda regla institucional debe declarar esa fecha (auditoría 2026-10-08: 4 de 6 archivos normativos no la tenían; ya corregido).
 
 ## Fuentes
 
@@ -57,3 +60,4 @@ Reglas que aplican a cualquier misión, sin excepción, y que ningún subagente,
 - `.github/knowledge/azure/azure-well-architected-framework.md`
 - Un caso real de misión, evaluado durante la construcción y validación del agente.
 - `.github/reglas-de-proyectos/correcciones-humanas.md`
+- `.github/reglas-de-proyectos/registro-revision-humana.md`

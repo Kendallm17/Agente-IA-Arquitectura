@@ -1,5 +1,7 @@
 # Correcciones humanas
 
+Última entrada agregada: 2026-10-07 (ver la sección fechada más abajo; este archivo no tiene "última actualización" fija porque crece con cada corrección real — la fecha vigente es la de la entrada más reciente).
+
 Memoria de errores **en producción**: cada vez que una persona arquitecta corrige un resultado del agente ya en uso (un hallazgo mal calculado, un dictamen incorrecto, una recomendación sin evidencia, una talla mal asignada, un entregable con un formato equivocado, etc.) durante la evaluación de una misión real, la corrección se registra aquí para que el agente no la repita.
 
 Este archivo **no** es para decisiones de construcción del repositorio (esas quedan en el historial de la conversación de desarrollo y, si se vuelven permanentes, en `reglas-inviolables-de-mision.md`). Es para errores del agente ya operando: la etapa de producción, no la de desarrollo.

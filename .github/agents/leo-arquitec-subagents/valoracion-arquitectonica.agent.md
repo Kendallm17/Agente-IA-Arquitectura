@@ -56,6 +56,8 @@ El catálogo original del contexto maestro propone más skills para este subagen
 - `.github/reglas-de-proyectos/reglas-inviolables-de-mision.md`.
 - `.github/reglas-de-proyectos/correcciones-humanas.md`.
 
+Si ya se leyeron antes en esta misma misión (por el orquestador o por `context-builder`), este subagente no los reabre antes de cada uno de sus 3 skills.
+
 ## Criterio para activarlo
 
 El orquestador delega aquí cuando `mission-context.md` ya existe y su estado no es "Requiere información", "Requiere corrección" ni "No evaluable".

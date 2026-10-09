@@ -14,6 +14,7 @@ Proveer al Agente Evaluador las reglas, pilares, cuestionario y criterios oficia
 
 - Documento: "Diseño de arquitecturas de TI" (PDF institucional, proporcionado por Arquitectura TI).
 - Esta ficha ya incorpora el mapeo de campos reales del Formulario para Diseño de Arquitectura y del Modelo de Tallaje (estructura de columnas, códigos `ARQ-0xx`, matriz de talla) obtenido al analizar ejemplos reales de misiones durante la construcción del agente.
+- Última revisión registrada en este repo: la entregada por la persona responsable el 2026-10-07. Verificar vigencia con Arquitectura TI antes de usarla en una evaluación crítica.
 
 ## Cuándo se consulta
 
