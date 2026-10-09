@@ -56,7 +56,7 @@ Consolidar en una sola lista los datos generales, documentos y respuestas que fa
 4. Incorporar los criterios y dimensiones pendientes desde `analizar-tallaje`.
 5. Verificar si el Formulario o el Tallaje no fueron recibidos en absoluto (brecha documental, prioridad más alta).
 6. Para cada faltante, determinar si bloquea el Context Builder, bloquea una fase posterior, o no bloquea.
-7. Producir `missing-information.md`.
+7. Producir la sección `missing-information.md` como parte de la respuesta consolidada del Context Builder (no como archivo separado — ver `context-builder.agent.md`, "Salidas").
 
 ## Salida esperada
 
@@ -71,7 +71,7 @@ Consolidar en una sola lista los datos generales, documentos y respuestas que fa
 
 ## Formato de salida
 
-`missing-information.md`, en Markdown, y el mismo contenido también disponible en el contrato de salida común del orquestador.
+Sección `missing-information.md` dentro de la respuesta consolidada del Context Builder (no un archivo separado), y el mismo contenido también disponible en el contrato de salida común del orquestador.
 
 ## Evidencias que debe conservar
 

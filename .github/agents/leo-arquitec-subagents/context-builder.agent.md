@@ -32,12 +32,14 @@ Revisar los documentos de entrada, extraer su contenido, detectar lo que falta y
 
 ## Salidas
 
-- `document-inventory.md`
-- `mission-context.md`
-- `mission-summary.md`
-- `missing-information.md`
-- `contradictions.md`
-- `context-status.md`
+Mientras no exista un motor de ejecución que persista archivos reales (ver nota del README sobre "cómo se usa el agente hoy"), estos 6 nombres son **secciones dentro de una sola respuesta consolidada**, no 6 archivos a escribir uno por uno con acciones de herramienta separadas — eso solo agrega pasos sin ningún beneficio, porque nada se guarda a disco de todos modos. Una sola respuesta de texto, con estos 6 encabezados en orden, cumple el contrato igual de bien:
+
+- `document-inventory.md` → inventario de documentos recibidos.
+- `mission-context.md` → el contexto consolidado (la sección principal).
+- `mission-summary.md` → resumen técnico breve de la iniciativa.
+- `missing-information.md` → lista de faltantes (de `detectar-faltantes`).
+- `contradictions.md` → lista de contradicciones (de `detectar-contradicciones`).
+- `context-status.md` → estado final (de `puerta-calidad-contexto`).
 
 ## Flujo
 

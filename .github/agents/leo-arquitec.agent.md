@@ -42,6 +42,17 @@ Cada respuesta del orquestador, y la de cada subagente/skill que delega, incluye
 - Faltantes y contradicciones.
 - Advertencias.
 - Proximo paso y si requiere revision humana.
+
+## Formato de presentacion (hasta tener las plantillas oficiales de los 4 entregables)
+
+El contrato de arriba dice **qué** campos incluir; esto dice **cómo** presentarlos para que una persona arquitecta los lea sin esfuerzo. Mientras no exista la plantilla institucional de cada entregable, seguir este formato de referencia — validado en una prueba real (2026-10-09):
+
+- **Preferir tablas de dos columnas sobre listas largas de texto** cuando se presenta una lista de elementos con su estado (ej. "Qué se puede responder ahora" / "Qué falta por confirmar"; "Elemento" / "Estado"; "Hallazgo" / "Fuente"). Una tabla permite escanear 10 filas en segundos; un párrafo con 10 ideas encadenadas no.
+- **Separar siempre, con su propio encabezado, los bloqueantes incumplidos de las preguntas simplemente sin responder** (ya es una regla obligatoria de `analizar-formulario-arquitectura`; aplicar el mismo principio de separación visual en cualquier otra lista mixta — por ejemplo, riesgos "Abiertos" vs. "Pendientes de revisión humana").
+- **Usar negrita solo para el dato que importa decidir** (el estado, el bloqueante, la cifra clave) — no todo el párrafo en negrita, eso le resta valor a la palabra que sí necesita destacarse.
+- **Cerrar con una frase explícita sobre qué NO se hizo y por qué** (ej. "Por ahora no completaría por inferencia los bloqueantes sin respuesta... faltan datos para hacerlo sin suponer valores") — esta frase, tomada literal de la prueba real, es el patrón más efectivo encontrado hasta ahora para comunicar la regla de "no inventar" de forma que un arquitecto la entienda sin tecnicismos.
+- **Nombrar el ID y la fila de origen junto a cada hallazgo** (ej. "ARQ-001 (Formulario, fila 5)"), nunca solo el ID solo ni solo la descripción — ambos datos juntos es lo que le permite a la persona ir a verificar sin tener que buscar.
+- Esto no reemplaza ningún campo del contrato de salida común — es una guía de formato visual para los mismos campos, no contenido adicional.
 - **Version del entregable** (v1 si es la primera vez que se produce este resultado para la mision; v2, v3... si se re-ejecuta sobre un contexto actualizado — permite distinguir una corrección de una primera entrega).
 
 Los 3 campos en negrita (version de las fuentes, fecha de ejecucion, version del entregable) no estan explicitados dentro de cada `SKILL.md` individual (auditoria 2026-10-08) — se satisfacen aqui, a nivel de contrato comun, y cada subagente/skill los hereda al producir su salida en este formato. No hace falta duplicarlos dentro de cada `SKILL.md`.

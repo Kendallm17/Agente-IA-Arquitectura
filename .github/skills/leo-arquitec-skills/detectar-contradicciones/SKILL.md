@@ -41,7 +41,7 @@ Comparar valores que representan el mismo hecho de la misión pero vienen de fue
 2. Para cada par, verificar que ambos valores estén presentes (si falta uno, se omite — ya es un faltante).
 3. Comparar. Si coinciden, no se reporta nada para ese par.
 4. Si difieren, registrar la contradicción con ambos valores y sus fuentes.
-5. Producir `contradictions.md`, incluyendo explícitamente "Sin contradicciones detectadas" si no se encontró ninguna (no se omite la sección).
+5. Producir la sección `contradictions.md` como parte de la respuesta consolidada del Context Builder (no como archivo separado — ver `context-builder.agent.md`, "Salidas"), incluyendo explícitamente "Sin contradicciones detectadas" si no se encontró ninguna (no se omite la sección).
 
 ## Salida esperada
 
@@ -52,7 +52,7 @@ Comparar valores que representan el mismo hecho de la misión pero vienen de fue
 
 ## Formato de salida
 
-`contradictions.md`, en Markdown, más el contrato de salida común del orquestador.
+Sección `contradictions.md` dentro de la respuesta consolidada del Context Builder (no un archivo separado), más el contrato de salida común del orquestador.
 
 ## Evidencias que debe conservar
 

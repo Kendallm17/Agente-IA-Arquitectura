@@ -40,7 +40,7 @@ Ninguno directamente; depende de `mission-context.md`.
 2. Recorrer el árbol de decisión en el orden indicado.
 3. Determinar el estado y su razón.
 4. Determinar qué puede continuar parcialmente (p. ej. "la Valoración Arquitectónica puede avanzar; la Hoja de Adquisición no, porque falta el Centro de Costos").
-5. Producir `context-status.md`.
+5. Producir la sección `context-status.md` como parte de la respuesta consolidada del Context Builder (no como archivo separado — ver `context-builder.agent.md`, "Salidas").
 
 ## Salida esperada
 
@@ -55,7 +55,7 @@ Ninguno directamente; depende de `mission-context.md`.
 
 ## Formato de salida
 
-`context-status.md`, en Markdown, más el contrato de salida común del orquestador.
+Sección `context-status.md` dentro de la respuesta consolidada del Context Builder (no un archivo separado), más el contrato de salida común del orquestador.
 
 ## Evidencias que debe conservar
 
