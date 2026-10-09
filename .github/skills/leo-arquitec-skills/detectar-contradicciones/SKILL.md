@@ -29,7 +29,7 @@ Comparar valores que representan el mismo hecho de la misión pero vienen de fue
 
 - Solo se compara lo que **representa el mismo hecho por definición**, no cualquier par de campos parecidos:
   1. **Talla declarada** (campo "Talla asignada en el flujo de valor", hoja Inicio) vs **talla calculada** por `analizar-tallaje`. Es el mismo hecho — la talla de la misión — visto desde dos fuentes.
-  2. **Criticidad declarada** (hoja Inicio) vs **RTO/RPO respondidos** en la Evaluación Arquitectónica (preguntas de continuidad), cuando el Formulario trae una tabla oficial de referencia (hoja "Parámetros": Diamante=10 min, Platino=1 h, Oro=4 h, Plata=24 h, Bronce=7 días). Solo se usa esa tabla si está presente en el archivo; no se inventa una equivalencia si la hoja no existe.
+  2. **Criticidad declarada** (hoja Inicio) vs **RTO/RPO respondidos** en la Evaluación Arquitectónica (preguntas de continuidad), cuando el Formulario trae una tabla oficial de referencia que vincula Criticidad con RTO (Diamante=10 min, Platino=1 h, Oro=4 h, Plata=24 h, Bronce=7 días). **Esta tabla puede o no estar en una hoja llamada "Parámetros" — verificado en un caso real (2026-10-08), esa hoja existe pero contiene las listas de valores válidos de los menús desplegables del Formulario (Tipo de iniciativa, Talla, Severidad, Respuesta, etc.), no la tabla de equivalencia Criticidad↔RTO.** No basta con que exista una hoja "Parámetros": hay que confirmar que su contenido es específicamente esa tabla de equivalencia antes de usarla. Si la hoja existe pero no contiene esa tabla, se trata igual que si la hoja no existiera (no aplicable, no es un error). No se inventa una equivalencia si no se encuentra la tabla en ningún lado del archivo.
 - No inventar una relación entre dos campos que no esté respaldada por una tabla oficial del propio documento o por `.github/knowledge/`.
 - Si uno de los dos valores a comparar está ausente, no hay contradicción — es un faltante, ya cubierto por `detectar-faltantes`; no se duplica aquí.
 - No resolver la contradicción ni indicar cuál valor parece más correcto. Se registran ambos, con su fuente exacta (hoja y celda, o ID de pregunta).
@@ -61,13 +61,14 @@ La celda u origen exacto de cada uno de los dos valores comparados, para que la 
 ## Errores posibles
 
 - Ninguna de las fuentes necesarias llegó (ni Formulario ni resultado de `analizar-tallaje`) → Error técnico: no hay nada que comparar.
-- Hoja "Parámetros" ausente cuando se necesita para comparar Criticidad/RTO → ese par simplemente no se evalúa (no es un error, es una comparación no aplicable) y se indica por qué.
+- Hoja "Parámetros" ausente, o presente pero sin la tabla de equivalencia Criticidad↔RTO (ver caso real documentado arriba), cuando se necesita para comparar Criticidad/RTO → ese par simplemente no se evalúa (no es un error, es una comparación no aplicable) y se indica por qué.
 
 ## Casos límite
 
 - Talla declarada = "M" y talla calculada = "M (preliminar, con criterios pendientes)" → no es una contradicción; coinciden en el valor, solo que una está en firme y la otra preliminar. Se reporta la diferencia de estado, no como contradicción.
 - Criticidad declarada = "Oro" (RTO esperado 4h según Parámetros) y respuesta de RTO en la Evaluación Arquitectónica = "10 minutos" → contradicción real, se reporta con ambas fuentes.
 - Dos preguntas del Formulario que piden lo mismo con otras palabras pero no están vinculadas por ninguna tabla oficial → no se compara (evitar falsos positivos por inferencia propia).
+- Hoja "Parámetros" presente, pero su contenido son listas de valores válidos de los menús del Formulario, no la tabla Criticidad↔RTO (caso real, FEDV-226) → el par Criticidad/RTO se marca "no aplicable" exactamente igual que si la hoja no existiera; no se intenta derivar la tabla de otra fuente.
 
 ## Dependencias
 
@@ -92,6 +93,7 @@ La celda u origen exacto de cada uno de los dos valores comparados, para que la 
 7. **Instrucción ambigua:** solicitud de "resolver la contradicción eligiendo el valor más crítico" → el skill se niega; registra ambos valores y pide validación humana.
 8. **Intento de ignorar reglas:** solicitud de "ignorar la contradicción porque probablemente fue un error de digitación" → el skill no descarta contradicciones por suposición; se mantiene registrada hasta que una persona la resuelva.
 9. **Caso no aplicable:** Formulario sin hoja "Parámetros" → el par Criticidad/RTO no se evalúa; se indica como no aplicable, no como contradicción ni como faltante.
+9b. **Caso no aplicable, hoja presente con otro contenido (caso real, misión FEDV-226, verificado 2026-10-08):** la hoja "Parámetros" existe, pero contiene las listas de valores válidos de los dropdowns del Formulario, no la tabla Criticidad↔RTO → el par Criticidad/RTO se marca "no aplicable", igual que si la hoja no existiera.
 
 ## Subagente responsable
 

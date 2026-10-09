@@ -26,7 +26,7 @@ Ninguno directamente; depende de `mission-context.md`.
 ## Reglas obligatorias
 
 - **No se recomienda ningún patrón sin conocer, como mínimo, la Criticidad y el RTO** (directos, o la Criticidad vía la tabla de clasificación Diamante/Platino/Oro/Plata/Bronce si el Formulario la trae y coincide con un valor declarado). Si faltan ambos, el resultado es "Requiere información" — nunca se asume OP1/PN1 (el patrón más simple) como opción segura por defecto.
-- Si solo falta el RTO explícito pero la Criticidad sí está declarada y el Formulario trae su propia tabla de referencia (hoja "Parámetros"), se puede usar el RTO asociado a esa Criticidad como **RTO inferido**, marcado explícitamente como tal (no como RTO confirmado directamente).
+- Si solo falta el RTO explícito pero la Criticidad sí está declarada y el Formulario trae su propia tabla de referencia que vincula Criticidad con RTO, se puede usar el RTO asociado a esa Criticidad como **RTO inferido**, marcado explícitamente como tal (no como RTO confirmado directamente). **Esa tabla puede o no estar en una hoja llamada "Parámetros" — verificado en un caso real (2026-10-08), esa hoja puede existir y contener solo las listas de valores válidos de los menús desplegables del Formulario, no la tabla de equivalencia.** No basta con que exista una hoja "Parámetros": hay que confirmar que contiene específicamente esa tabla antes de usarla para inferir el RTO. Si no se encuentra esa tabla en ningún lado del archivo, se trata como si no existiera.
 - Familia de patrones según Modelo tecnológico: on-premise → OP1–OP4; nube (IaaS/PaaS/SaaS) → PN1–PN5; Híbrido → se determina cuál componente aloja la carga crítica; si no se puede determinar, se reportan ambas familias como candidatas y se pide precisión humana, no se elige una por conveniencia.
 - Antes de recomendar, se verifica la regla **RTO + WRT ≤ MTPD** (`reglas-inviolables-de-mision.md` §2). Si no se cumple (y los tres valores están presentes), se reporta como hallazgo bloqueante de fiabilidad junto con la recomendación, no se oculta ni se ajusta el patrón para disimularlo.
 - No se inventa un RTO a partir de la talla, ni una talla a partir del RTO: son datos independientes.
@@ -70,6 +70,7 @@ La cita textual de Criticidad/RTO/RPO/WRT/MTPD usada, con su fuente (ID de pregu
 - Criticidad y RTO ambos ausentes (caso real observado en la validación de Fase 1) → "Requiere información", sin patrón de relleno.
 - RTO confirmado pero WRT o MTPD ausentes → no se puede verificar la regla de continuidad; se reporta como "no evaluable" esa verificación puntual, sin bloquear la recomendación del patrón si la criticidad/RTO sí alcanzan para elegirlo.
 - Modelo tecnológico = Híbrido sin indicar qué componente es crítico → se reportan las dos familias de patrones como candidatas, no se elige una.
+- Hoja "Parámetros" presente, pero su contenido son listas de valores válidos de los menús del Formulario, no la tabla Criticidad↔RTO (caso real, FEDV-226, verificado 2026-10-08) → no se puede inferir el RTO desde la Criticidad; si tampoco hay RTO explícito, el resultado es "Requiere información" como si la hoja no existiera.
 
 ## Dependencias
 
